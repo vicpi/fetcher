@@ -1,8 +1,8 @@
 import { getStore } from '../store'
 import { saveUser } from '../actions'
 import { User } from 'types'
-// const USER_ENDPOINT = 'https://api.supercom.com/v1/users/'
-const USER_ENDPOINT = 'http://localhost:8222/users/'
+const USER_ENDPOINT = 'https://api.supercom.com/v1/users/'
+// const USER_ENDPOINT = 'http://localhost:8222/users/'
 
 interface IFetcher<T> {
   fetchById(id: number): Promise<T | undefined>
