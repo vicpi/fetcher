@@ -17,3 +17,7 @@ export type Action = saveUserAction
 export interface UsersState {
   [id: string]: User
 }
+
+export interface AppState {
+  users: UsersState
+}
