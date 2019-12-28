@@ -16,7 +16,11 @@ export class Fetcher implements IFetcher<User> {
     return fetch(`${USER_ENDPOINT}${id}`)
     .then(response => {
       if (response.status < 200 || response.status >= 300) {
-        return Promise.reject(new Error(response.statusText))
+        return Promise.reject(undefined)
+        // Would be better to return an error with the status
+        // but IFetcher interface provided in the task description
+        // says that undefined should be returned
+        // return Promise.reject(new Error(response.statusText))
       }
       
       return response.json()
