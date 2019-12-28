@@ -1,12 +1,13 @@
 import { getStore } from '../store'
 import { saveUser } from '../actions'
+import { User } from 'types'
 const USER_ENDPOINT = 'https://api.supercom.com/v1/users/'
 
 interface IFetcher<T> {
-  fetchById(id: number): Promise<T | undefined>
+  (id: number): Promise<T | undefined>
 }
 
-export const fetchById = (id: number) => {
+export const fetchById: IFetcher<User> = (id: number): Promise<User | undefined> => {
   if (id <= 0) {
     return Promise.reject(new Error(`id should be greater than 0`))
   }
@@ -20,7 +21,7 @@ export const fetchById = (id: number) => {
     return response.json()
   })
   .then(user => {
-    // Save to Redux state
+    // Save to Redux
     const store = getStore()
     store.dispatch(saveUser(user))
 

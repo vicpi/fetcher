@@ -13,3 +13,7 @@ export interface saveUserAction {
 }
 
 export type Action = saveUserAction
+
+export interface UsersState {
+  [id: string]: User
+}

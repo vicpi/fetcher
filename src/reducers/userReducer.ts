@@ -1,7 +1,7 @@
 import { SAVE_USER } from '../actions'
-import { Action } from 'types'
+import { UsersState, Action } from 'types'
 
-export const userReducer = (state: any = {}, action: Action) => {
+export const userReducer = (state: UsersState = {}, action: Action) => {
   switch (action.type) {
     case SAVE_USER:
     return {
@@ -9,6 +9,6 @@ export const userReducer = (state: any = {}, action: Action) => {
       [action.payload.user.id]: action.payload.user
     }
     default:
-    return state
+      return state
   }
 }
